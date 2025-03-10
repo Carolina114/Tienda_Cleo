@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda de Ropa</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'store/styles.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+</head>
+<body>
+    <!-- Barra superior negra -->
+    <div class="top-bar">
+        <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-pinterest"></i></a>
+            <a href="#"><i class="fab fa-tiktok"></i></a>
+        </div>
+        <span class="top-text">CLEO STORE</span>
+    </div>
+
+    <!-- Menú principal blanco -->
+    <header class="navbar">
+        <div class="logo">
+            <img src="{% static 'store/img/logo.png' %}" alt="Navissi">
+        </div>
+        <nav class="nav-links">
+            <ul>
+                <li><a href="#">NUEVO</a></li>
+                <li><a href="#" class="outlet">OUTLET</a></li>
+                <li><a href="#">PRENDAS POR MENOS DE</a></li>
+                <li><a href="#">CATEGORÍAS</a></li>
+                <li><a href="#">NOSOTROS</a></li>
+            </ul>
+        </nav>
+        <div class="nav-icons">
+            <a href="#"><span>Cuenta</span></a>
+            <a href="#"><span>Buscar</span> <i class="fas fa-search"></i></a>
+            <a href="#"><span>Carrito</span> <i class="fas fa-shopping-cart"></i></a>
+        </div>
+    </header>
+
+    <!-- Carrusel de imágenes con texto -->
+    <div class="carousel-container">
+        <div class="carousel">
+            <div class="carousel-slide">
+                <img src="{% static 'store/img/Falda.jpeg' %}" alt="Slide 1">
+                <div class="carousel-text">
+                    <h1>NEW COLLECTION</h1>
+                    <p>FEMMIN</p>
+                    <a href="#" class="shop-now">SHOP NOW</a>
+                </div>
+            </div>
+            <div class="carousel-slide">
+                <img src="{% static 'store/img/Falda.jpeg' %}" alt="Slide 2">
+                <div class="carousel-text">
+                    <h1>¡PIDE HOY, RECIBE HOY!</h1>
+                    <p>Entrega en Medellín y municipios principales</p>
+                    <a href="#" class="shop-now">VER MÁS</a>
+                </div>
+            </div>
+            <div class="carousel-slide">
+                <img src="{% static 'store/img/Falda.jpeg' %}" alt="Slide 3">
+                <div class="carousel-text">
+                    <h1>COLECCIÓN EXCLUSIVA</h1>
+                    <p>Descubre las últimas tendencias</p>
+                    <a href="#" class="shop-now">COMPRAR</a>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-prev" onclick="moverCarrusel(-1)">&#10094;</button>
+        <button class="carousel-next" onclick="moverCarrusel(1)">&#10095;</button>
+    </div>
+    <section class="categories">
+        <h2 class="section-title">CATEGORÍAS</h2>
+        <div class="categories-grid">
+            <div class="category-item">
+                <img src="{% static 'store/img/Falda.jpeg' %}" alt="Blusas">
+                <div class="category-label">BLUSAS</div>
+            </div>
+            <div class="category-item">
+                <img src="{% static 'store/img/Falda.jpeg' %}" alt="Denim">
+                <div class="category-label">DENIM</div>
+            </div>
+            <div class="category-item">
+                <img src="{% static 'store/img/Falda.jpeg' %}" alt="Pantalones">
+                <div class="category-label">PANTALONES</div>
+            </div>
+            <div class="category-item">
+                <img src="{% static 'store/img/Falda.jpeg' %}" alt="Bodies">
+                <div class="category-label">BODIES</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="best-sellers">
+        <div class="best-sellers-header">
+            <h2 class="section-title">MÁS VENDIDOS</h2>
+            <a href="#" class="view-all">VER TODO</a>
+        </div>
+        <div class="products-grid">
+            <div class="product-item">
+                <span class="new-label">NUEVO</span>
+                <img src="{% static 'store/img/Falda.jpeg' %}" alt="Producto 1">
+                <p class="product-name">Chaleco Negro Cargo</p>
+                <p class="product-price">$89.900 COP</p>
+            </div>
+            <div class="product-item">
+                <span class="new-label">NUEVO</span>
+                <img src="{% static 'store/img/Falda.jpeg' %}" alt="Producto 2">
+                <p class="product-name">Pantalón Negro Amarres</p>
+                <p class="product-price">$119.900 COP</p>
+            </div>
+            <div class="product-item">
+                <span class="new-label">NUEVO</span>
+                <img src="{% static 'store/img/Falda.jpeg' %}" alt="Producto 3">
+                <p class="product-name">Body Vino Tinto Entorchado</p>
+                <p class="product-price">$64.900 COP</p>
+            </div>
+            <div class="product-item">
+                <span class="new-label">NUEVO</span>
+                <img src="{% static 'store/img/Falda.jpeg' %}" alt="Producto 4">
+                <p class="product-name">Jean Gris Straight</p>
+                <p class="product-price">$139.900 COP</p>
+            </div>
+        </div>
+    </section>    
+    
+    <script src="{% static 'store/carrito.js' %}"></script>
+    <script src="{% static 'store/filtro.js' %}"></script>
+    <script src="{% static 'store/carrusel.js' %}"></script>
+    <script src="{% static 'store/carrusel_productos.js' %}"></script>
+
+</body>
+
+<footer class="footer">
+    <div class="footer-top">
+        <div class="footer-stores">
+            <h3>NUESTRAS TIENDAS</h3>
+            <p><strong>Medellín, Antioquia</strong><br>CC. Santafé, CC. Premium Plaza, CC. Los Molinos, CC. Viva Envigado, CC. Fabricato</p>
+            <p><strong>Bogotá, DC</strong><br>CC. Santafé, CC. Nuestro</p>
+            <p><strong>Cali, Valle del Cauca</strong><br>CC. Unicentro, CC. Chipichape</p>
+            <p><strong>Barranquilla, Atlántico</strong><br>CC. Viva Barranquilla</p>
+            <p><strong>Cartagena, Bolívar</strong><br>CC. Caribe Plaza</p>
+            <button class="footer-btn">📍 DIRECCIONES</button>
+        </div>
+        <div class="footer-image">
+            <img src="{% static 'store/img/tienda.jpg' %}" alt="Tienda">
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <div class="footer-section">
+            <h4>T&C</h4>
+            <ul>
+                <li><a href="#">Términos y condiciones sitio web</a></li>
+                <li><a href="#">TYC San Valentín 2025</a></li>
+                <li><a href="#">Hasta el 60% OFF - San Valentín 2025</a></li>
+                <li><a href="#">Envíos y entregas</a></li>
+                <li><a href="#">Cambios y devoluciones</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h4>CONTACTO</h4>
+            <p>WhatsApp atención: <strong>3116197954</strong></p>
+            <p>Correo: <strong>contacto@cleo.com</strong></p>
+            <h5>Compra en tiendas físicas</h5>
+            <p>Fabricato: 3165253399</p>
+            <p>Bogotá: 318 335 0638</p>
+            <p>Barranquilla: 3188011836</p>
+        </div>
+        <div class="footer-section">
+            <h4>VISSI</h4>
+            <ul>
+                <li><a href="#">Guía de tallas</a></li>
+                <li><a href="#">Cuida tus prendas</a></li>
+                <li><a href="#">Preguntas frecuentes</a></li>
+                <li><a href="#">Asesora Virtual</a></li>
+            </ul>
+        </div>
+        <div class="footer-section newsletter">
+            <h4>NEWSLETTER</h4>
+            <p>Suscríbete a nuestra lista VIP #CleoLovers</p>
+            <input type="email" placeholder="Correo electrónico">
+            <button class="newsletter-btn">ENVIAR</button>
+            <div class="footer-icons">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-pinterest"></i></a>
+                <a href="#"><i class="fab fa-tiktok"></i></a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+</html>

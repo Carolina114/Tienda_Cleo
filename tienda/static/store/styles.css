@@ -1,0 +1,527 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f3e5f5; /* Morado claro */
+    color: black;
+    text-align: center;
+}
+
+/* Alineación del header */
+.header-container {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px;
+    background-color: black;
+    color: white;
+}
+
+/* Barra superior negra */
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: black;
+    color: white;
+    padding: 10px 50px;
+    font-size: 14px;
+    font-weight: bold;
+    position: relative;
+}
+
+/* Iconos de redes sociales en blanco */
+.social-icons a {
+    color: white; /* Hace los iconos blancos */
+    margin-right: 15px;
+    font-size: 16px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+/* Efecto hover para los iconos de redes sociales */
+.social-icons a:hover {
+    color: #b3b3b3; /* Un tono gris claro al pasar el mouse */
+}
+
+/* Centrar CLEO STORE */
+.top-text {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+
+/* Menú principal blanco */
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 50px;
+    background-color: white;
+    border-bottom: 1px solid #ccc;
+}
+
+/* Logo */
+.logo img {
+    height: 40px; /* Ajusta el tamaño del logo */
+}
+
+/* Menú de navegación */
+.nav-links ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-links li {
+    display: inline;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: black;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.nav-links .outlet {
+    color: red; /* Resaltar "OUTLET" en rojo */
+}
+
+/* Iconos de navegación (Cuenta, Buscar, Carrito) */
+.nav-icons {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.nav-icons a {
+    text-decoration: none;
+    color: black;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.nav-icons i {
+    font-size: 18px;
+}
+/* Contenedor del carrusel */
+.carousel-container {
+    position: relative;
+    width: 100%;
+    max-width: 1400px; /* Más ancho */
+    height: 550px; /* Más alto */
+    margin: 20px auto;
+    overflow: hidden;
+    border-radius: 0px; /* Sin bordes redondeados */
+}
+
+/* Carrusel: desliza horizontalmente */
+.carousel {
+    display: flex;
+    transition: transform 0.6s ease-in-out;
+    width: 300%;
+}
+
+/* Cada slide del carrusel */
+.carousel-slide {
+    position: relative;
+    min-width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+/* Estilos de las imágenes del carrusel */
+.carousel-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ajusta la imagen sin distorsionarla */
+}
+
+/* Texto sobre la imagen */
+.carousel-text {
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    transform: translateY(-50%);
+    color: white;
+    text-align: left;
+}
+
+.carousel-text h1 {
+    font-size: 48px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.carousel-text p {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+/* Botón de Shop Now */
+.shop-now {
+    display: inline-block;
+    padding: 10px 20px;
+    border: 2px solid white;
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    transition: background 0.3s ease-in-out;
+}
+
+.shop-now:hover {
+    background: white;
+    color: black;
+}
+
+/* Botones de navegación */
+.carousel-prev,
+.carousel-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(255, 255, 255, 0.3);
+    color: black;
+    border: none;
+    padding: 12px;
+    cursor: pointer;
+    font-size: 24px;
+    border-radius: 50%;
+}
+
+/* Posición de los botones */
+.carousel-prev { left: 20px; }
+.carousel-next { right: 20px; }
+
+.carousel-prev:hover,
+.carousel-next:hover {
+    background-color: rgba(255, 255, 255, 0.7);
+}
+
+/* Sección de categorías */
+.categories {
+    text-align: center;
+    padding: 50px 20px;
+    background-color: white;
+}
+
+/* Título de la sección */
+.section-title {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+/* Contenedor de categorías */
+.categories-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Cada categoría */
+.category-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+/* Imágenes */
+.category-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Efecto hover en las imágenes */
+.category-item:hover img {
+    transform: scale(1.05);
+}
+
+/* Etiqueta de la categoría */
+.category-label {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.4);
+    color: white;
+    font-size: 16px;
+    text-align: left;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: background 0.3s ease-in-out;
+}
+
+/* Hover para aclarar el fondo del texto */
+.category-item:hover .category-label {
+    background: rgba(0, 0, 0, 0.6);
+}
+
+/* Sección Más Vendidos */
+.best-sellers {
+    text-align: center;
+    padding: 50px 20px;
+    background-color: white;
+}
+
+/* Encabezado con título y botón Ver Todo */
+.best-sellers-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto 30px;
+}
+
+.best-sellers-header h2 {
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.view-all {
+    font-size: 14px;
+    text-transform: uppercase;
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+    border-bottom: 1px solid black;
+}
+
+.view-all:hover {
+    color: gray;
+    border-bottom: 1px solid gray;
+}
+
+/* Contenedor de productos */
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Cada producto */
+.product-item {
+    position: relative;
+    text-align: left;
+}
+
+/* Etiqueta NUEVO */
+.new-label {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: black;
+    color: white;
+    padding: 5px 10px;
+    font-size: 12px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+/* Imagen de producto */
+.product-item img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+/* Nombre del producto */
+.product-name {
+    font-size: 16px;
+    margin: 10px 0 5px;
+}
+
+/* Precio del producto */
+.product-price {
+    font-size: 14px;
+    color: gray;
+}
+
+
+/* ========== FOOTER ========== */
+.footer {
+    background-color: #f5f5f5;
+    padding: 40px 20px;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Sección superior del footer */
+.footer-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-bottom: 40px;
+}
+
+/* Texto de tiendas */
+.footer-stores {
+    max-width: 50%;
+}
+
+.footer-stores h3 {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.footer-stores p {
+    font-size: 14px;
+    color: #333;
+}
+
+.footer-btn {
+    background: none;
+    border: 1px solid black;
+    padding: 10px 15px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.footer-btn:hover {
+    background: black;
+    color: white;
+}
+
+/* Imagen de la tienda */
+.footer-image img {
+    width: 300px;
+    border-radius: 5px;
+}
+
+/* Sección inferior del footer */
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-top: 30px;
+    border-top: 1px solid #ddd;
+}
+
+/* Cada columna */
+.footer-section {
+    width: 23%;
+}
+
+.footer-section h4 {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 5px;
+}
+
+.footer-section ul li a {
+    text-decoration: none;
+    color: #333;
+    font-size: 14px;
+}
+
+.footer-section ul li a:hover {
+    color: #666;
+}
+
+/* NEWSLETTER */
+.newsletter input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+}
+
+.newsletter-btn {
+    background: black;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 14px;
+}
+
+.newsletter-btn:hover {
+    background: #333;
+}
+
+/* ÍCONOS DE REDES SOCIALES */
+.footer-icons {
+    margin-top: 10px;
+}
+
+.footer-icons a {
+    color: black;
+    font-size: 18px;
+    margin-right: 10px;
+    text-decoration: none;
+}
+
+.footer-icons a:hover {
+    color: #666;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .footer-top {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-stores {
+        max-width: 100%;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-section {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .footer-image img {
+        width: 100%;
+    }
+}
+
+
+@media (max-width: 768px) {
+    
+    .carousel-container {
+        width: 80%;  /* Más grande en móviles */
+        height: 150px;  /* Menor altura */
+    }
+    .carousel-slide {
+        height: 150px;
+    }
+    .products-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
