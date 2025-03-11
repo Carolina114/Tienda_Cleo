@@ -355,6 +355,109 @@ body {
 }
 
 
+.login-container {
+    max-width: 400px;
+    margin: 80px auto;
+    padding: 40px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Título */
+.login-container h2 {
+    font-size: 24px;
+    font-weight: bold;
+    color: black;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+/* ========== FORMULARIO ========== */
+.form-group {
+    text-align: left;
+    margin-bottom: 15px;
+}
+
+label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #333;
+}
+
+/* Campos de entrada */
+input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-top: 5px;
+    font-size: 14px;
+    background-color: #f8f8f8;
+}
+
+/* ========== OLVIDÓ SU CONTRASEÑA ========== */
+.forgot-password {
+    text-align: right;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+.forgot-password a {
+    text-decoration: none;
+    color: #5a2d82; /* Morado */
+    font-weight: 500;
+    transition: color 0.3s ease-in-out;
+}
+
+.forgot-password a:hover {
+    color: #4a1f6a; /* Morado oscuro */
+}
+
+/* ========== BOTÓN DE LOGIN ========== */
+.login-btn {
+    width: 100%;
+    background: black;
+    color: white;
+    border: none;
+    padding: 12px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 10px;
+    transition: background 0.3s ease-in-out;
+    text-transform: uppercase;
+}
+
+.login-btn:hover {
+    background: #333;
+}
+
+/* ========== LINK DE REGISTRO ========== */
+.register-link {
+    margin-top: 15px;
+    font-size: 14px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.register-link a {
+    text-decoration: none;
+    color: black;
+    font-weight: 600;
+    transition: color 0.3s ease-in-out;
+}
+
+.register-link a:hover {
+    color: gray;
+}
+
+
+
+
 /* ========== FOOTER ========== */
 .footer {
     background-color: #f5f5f5;
@@ -487,6 +590,16 @@ body {
 
 /* RESPONSIVE */
 @media (max-width: 768px) {
+    .carousel-container {
+        width: 80%;  /* Más grande en móviles */
+        height: 150px;  /* Menor altura */
+    }
+    .carousel-slide {
+        height: 150px;
+    }
+    .products-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
     .footer-top {
         flex-direction: column;
         text-align: center;
@@ -511,17 +624,3 @@ body {
     }
 }
 
-
-@media (max-width: 768px) {
-    
-    .carousel-container {
-        width: 80%;  /* Más grande en móviles */
-        height: 150px;  /* Menor altura */
-    }
-    .carousel-slide {
-        height: 150px;
-    }
-    .products-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}

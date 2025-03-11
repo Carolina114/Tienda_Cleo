@@ -33,12 +33,12 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'django.contrib.admin',
-    'django.contrib.auth',
+    'django.contrib.auth', # Sistema de autenticación
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'store',
+    'store', #La aplicación
 ]
 
 MIDDLEWARE = [
@@ -77,8 +77,15 @@ WSGI_APPLICATION = 'tienda.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'store_cleo',  # Nombre de la base de datos
+        'USER': 'django_user',              # Usuario root
+        'PASSWORD': 'store_cleo',              # Sin contraseña
+        'HOST': 'localhost',         # Servidor de MySQL
+        'PORT': '3306',              # Puerto por defecto de MySQL
+        'OPTIONS': {
+            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"
+        }
     }
 }
 

@@ -1,16 +1,137 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tienda de Ropa</title>
+    <title>Iniciar Sesión</title>
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
+
+    <!-- Estilos en línea -->
+    <style>
+        /* ========== ESTILOS GENERALES ========== */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f3e5f5; /* Morado claro */
+            color: black;
+            text-align: center;
+        }
+
+        /* ========== CONTENEDOR DEL LOGIN ========== */
+        .login-container {
+            max-width: 400px;
+            margin: 80px auto;
+            padding: 40px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        /* Título */
+        .login-container h2 {
+            font-size: 24px;
+            font-weight: bold;
+            color: black;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        /* ========== FORMULARIO ========== */
+        .form-group {
+            text-align: left;
+            margin-bottom: 15px;
+        }
+
+        label {
+            font-size: 14px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        /* Campos de entrada */
+        input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-top: 5px;
+            font-size: 14px;
+            background-color: #f8f8f8;
+        }
+
+        /* ========== OLVIDÓ SU CONTRASEÑA ========== */
+        .forgot-password {
+            text-align: right;
+            font-size: 12px;
+            margin-top: 5px;
+        }
+
+        .forgot-password a {
+            text-decoration: none;
+            color: #5a2d82; /* Morado */
+            font-weight: 500;
+            transition: color 0.3s ease-in-out;
+        }
+
+        .forgot-password a:hover {
+            color: #4a1f6a; /* Morado oscuro */
+        }
+
+        /* ========== BOTÓN DE LOGIN ========== */
+        .login-btn {
+            width: 100%;
+            background: black;
+            color: white;
+            border: none;
+            padding: 12px;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 10px;
+            transition: background 0.3s ease-in-out;
+            text-transform: uppercase;
+        }
+
+        .login-btn:hover {
+            background: #333;
+        }
+
+        /* ========== LINK DE REGISTRO ========== */
+        .register-link {
+            margin-top: 15px;
+            font-size: 14px;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .register-link a {
+            text-decoration: none;
+            color: black;
+            font-weight: 600;
+            transition: color 0.3s ease-in-out;
+        }
+
+        .register-link a:hover {
+            color: gray;
+        }
+
+        /* ========== RESPONSIVE DESIGN ========== */
+        @media (max-width: 768px) {
+            .login-container {
+                width: 90%;
+                padding: 30px;
+            }
+        }
+    </style>
 </head>
 <body>
-    <!-- Barra superior negra -->
+        <!-- Barra superior negra -->
     <div class="top-bar">
         <div class="social-icons">
             <a href="#"><i class="fab fa-facebook-f"></i></a>
@@ -43,96 +164,31 @@
         </div>
     </header>
 
-    <!-- Carrusel de imágenes con texto -->
-    <div class="carousel-container">
-        <div class="carousel">
-            <div class="carousel-slide">
-                <img src="{% static 'img/Falda.jpeg' %}" alt="Slide 1">
-                <div class="carousel-text">
-                    <h1>NEW COLLECTION</h1>
-                    <p>FEMMIN</p>
-                    <a href="#" class="shop-now">SHOP NOW</a>
+    <div class="login-container">
+        <h2>INGRESAR</h2>
+        <form method="POST">
+            {% csrf_token %}
+            
+            <div class="form-group">
+                <label for="username">Correo electrónico</label>
+                <input type="text" id="username" name="username" placeholder="Tu correo..." required>
+            </div>
+            
+            <div class="form-group">
+                <label for="password">Contraseña</label>
+                <input type="password" id="password" name="password" placeholder="Tu contraseña..." required>
+                <div class="forgot-password">
+                    <a href="#">¿Olvidó su contraseña?</a>
                 </div>
             </div>
-            <div class="carousel-slide">
-                <img src="{% static 'img/Falda.jpeg' %}" alt="Slide 2">
-                <div class="carousel-text">
-                    <h1>¡PIDE HOY, RECIBE HOY!</h1>
-                    <p>Entrega en Medellín y municipios principales</p>
-                    <a href="#" class="shop-now">VER MÁS</a>
-                </div>
-            </div>
-            <div class="carousel-slide">
-                <img src="{% static 'img/Falda.jpeg' %}" alt="Slide 3">
-                <div class="carousel-text">
-                    <h1>COLECCIÓN EXCLUSIVA</h1>
-                    <p>Descubre las últimas tendencias</p>
-                    <a href="#" class="shop-now">COMPRAR</a>
-                </div>
-            </div>
+
+            <button type="submit" class="login-btn">INICIAR SESIÓN</button>
+        </form>
+
+        <div class="register-link">
+            ¿No tienes cuenta? <a href="{% url 'registro' %}">Regístrate aquí</a>
         </div>
-        <button class="carousel-prev" onclick="moverCarrusel(-1)">&#10094;</button>
-        <button class="carousel-next" onclick="moverCarrusel(1)">&#10095;</button>
     </div>
-    <section class="categories">
-        <h2 class="section-title">CATEGORÍAS</h2>
-        <div class="categories-grid">
-            <div class="category-item">
-                <img src="{% static 'img/Falda.jpeg' %}" alt="Blusas">
-                <div class="category-label">BLUSAS</div>
-            </div>
-            <div class="category-item">
-                <img src="{% static 'img/Falda.jpeg' %}" alt="Denim">
-                <div class="category-label">DENIM</div>
-            </div>
-            <div class="category-item">
-                <img src="{% static 'img/Falda.jpeg' %}" alt="Pantalones">
-                <div class="category-label">PANTALONES</div>
-            </div>
-            <div class="category-item">
-                <img src="{% static 'img/Falda.jpeg' %}" alt="Bodies">
-                <div class="category-label">BODIES</div>
-            </div>
-        </div>
-    </section>
-
-    <section class="best-sellers">
-        <div class="best-sellers-header">
-            <h2 class="section-title">MÁS VENDIDOS</h2>
-            <a href="#" class="view-all">VER TODO</a>
-        </div>
-        <div class="products-grid">
-            <div class="product-item">
-                <span class="new-label">NUEVO</span>
-                <img src="{% static 'img/Falda.jpeg' %}" alt="Producto 1">
-                <p class="product-name">Chaleco Negro Cargo</p>
-                <p class="product-price">$89.900 COP</p>
-            </div>
-            <div class="product-item">
-                <span class="new-label">NUEVO</span>
-                <img src="{% static 'img/Falda.jpeg' %}" alt="Producto 2">
-                <p class="product-name">Pantalón Negro Amarres</p>
-                <p class="product-price">$119.900 COP</p>
-            </div>
-            <div class="product-item">
-                <span class="new-label">NUEVO</span>
-                <img src="{% static 'img/Falda.jpeg' %}" alt="Producto 3">
-                <p class="product-name">Body Vino Tinto Entorchado</p>
-                <p class="product-price">$64.900 COP</p>
-            </div>
-            <div class="product-item">
-                <span class="new-label">NUEVO</span>
-                <img src="{% static 'img/Falda.jpeg' %}" alt="Producto 4">
-                <p class="product-name">Jean Gris Straight</p>
-                <p class="product-price">$139.900 COP</p>
-            </div>
-        </div>
-    </section>    
-    
-    <script src="{% static 'js/carrito.js' %}"></script>
-    <script src="{% static 'js/carrusel.js' %}"></script>
-    <script src="{% static 'js/carrusel_productos.js' %}"></script>
-
 </body>
 
 <footer class="footer">
