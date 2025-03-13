@@ -1,0 +1,154 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Carrito de Compra</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .cart-container {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+        .cart-title {
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .cart-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .cart-table th, .cart-table td {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+            text-align: center;
+        }
+        .cart-item img {
+            width: 80px;
+            border-radius: 5px;
+        }
+        .quantity-input {
+            width: 50px;
+            text-align: center;
+        }
+        .subtotal {
+            font-size: 20px;
+            font-weight: bold;
+            text-align: right;
+            margin-top: 20px;
+        }
+        .checkout-btn {
+            width: 100%;
+            background: black;
+            color: white;
+            border: none;
+            padding: 12px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 10px;
+            text-transform: uppercase;
+        }
+        .checkout-btn:hover {
+            background: gray;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="cart-container">
+        <h2 class="cart-title">CARRITO DE COMPRA</h2>
+
+        <table class="cart-table">
+            <thead>
+                <tr>
+                    <th>Producto</th>
+                    <th>Precio</th>
+                    <th>Cantidad</th>
+                    <th>Total</th>
+                    <th>Acción</th>
+                </tr>
+            </thead>
+            <tbody id="cart-items">
+                <!-- Los productos se insertarán aquí con JS -->
+            </tbody>
+        </table>
+
+        <div class="subtotal">
+            SUBTOTAL: <span id="cart-total">$0 COP</span>
+        </div>
+
+        <button class="checkout-btn" onclick="finalizarPedido()">FINALIZAR PEDIDO</button>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+            const cartItemsContainer = document.getElementById("cart-items");
+            const cartTotal = document.getElementById("cart-total");
+
+            if (carrito.length === 0) {
+                cartItemsContainer.innerHTML = "<tr><td colspan='5'>Tu carrito está vacío</td></tr>";
+                return;
+            }
+
+            let totalCompra = 0;
+
+            carrito.forEach((producto, index) => {
+                const totalProducto = parseFloat(producto.precio.replace("$", "").replace(",", "")) * producto.cantidad;
+                totalCompra += totalProducto;
+
+                const fila = `
+                    <tr>
+                        <td class="cart-item">
+                            <img src="${producto.imagen}" alt="${producto.nombre}">
+                            <p>${producto.nombre}</p>
+                        </td>
+                        <td>${producto.precio}</td>
+                        <td>
+                            <button onclick="cambiarCantidad(${index}, -1)">-</button>
+                            <input type="number" class="quantity-input" value="${producto.cantidad}" min="1" readonly>
+                            <button onclick="cambiarCantidad(${index}, 1)">+</button>
+                        </td>
+                        <td>$${totalProducto.toFixed(2)} COP</td>
+                        <td><button onclick="eliminarProducto(${index})">Quitar ❌</button></td>
+                    </tr>
+                `;
+
+                cartItemsContainer.innerHTML += fila;
+            });
+
+            cartTotal.textContent = `$${totalCompra.toFixed(2)} COP`;
+        });
+
+        function cambiarCantidad(index, cambio) {
+            let carrito = JSON.parse(localStorage.getItem("carrito"));
+            carrito[index].cantidad += cambio;
+
+            if (carrito[index].cantidad <= 0) {
+                carrito.splice(index, 1);
+            }
+
+            localStorage.setItem("carrito", JSON.stringify(carrito));
+            location.reload();
+        }
+
+        function eliminarProducto(index) {
+            let carrito = JSON.parse(localStorage.getItem("carrito"));
+            carrito.splice(index, 1);
+            localStorage.setItem("carrito", JSON.stringify(carrito));
+            location.reload();
+        }
+
+        function finalizarPedido() {
+            alert("¡Pedido finalizado! Redirigiendo a pago...");
+        }
+    </script>
+
+</body>
+</html>

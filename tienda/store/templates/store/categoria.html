@@ -1,0 +1,126 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ categoria|capfirst }}</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'css/categoria.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Barra superior negra -->
+    <div class="top-bar">
+        <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-pinterest"></i></a>
+            <a href="#"><i class="fab fa-tiktok"></i></a>
+        </div>
+        <span class="top-text">CLEO STORE</span>
+    </div>
+
+    <!-- Menú principal blanco -->
+    <header class="navbar">
+        <div class="logo">
+            <img src="{% static 'img/logo.png' %}" alt="Navissi">
+        </div>
+        <nav class="nav-links">
+            <ul>
+                <li><a href="#">NUEVO</a></li>
+                <li><a href="#" class="outlet">OUTLET</a></li>
+                <li><a href="#">PRENDAS POR MENOS DE</a></li>
+                <li><a href="#">CATEGORÍAS</a></li>
+                <li><a href="#">NOSOTROS</a></li>
+            </ul>
+        </nav>
+        <div class="nav-icons">
+            {% if user.is_authenticated %}
+                <a href="{% url 'perfil' %}">{{ user.first_name }} {{ user.last_name }}</a>
+                <a href="{% url 'logout' %}">Cerrar sesión</a>
+            {% else %}
+                <a href="{% url 'login' %}"><span>Cuenta</span></a>
+            {% endif %}
+            <a href="#"><span>Buscar</span> <i class="fas fa-search"></i></a>
+            <a href="{% url 'ver_carrito' %}">
+                <span>Carrito</span>
+                <i class="fas fa-shopping-cart"></i>
+                <span id="cart-count">0</span> <!-- Contador del carrito -->
+            </a>
+        </div>
+    </header>
+
+    <section class="products">
+        <h2 class="section-title">{{ categoria|capfirst }}</h2>
+        <div class="products-grid">
+            {% for producto in productos %}
+                <div class="product-item">
+                    <div class="product-img">
+                        <img src="{% static producto.imagen %}" alt="{{ producto.nombre }}">
+                        <div class="buy-button">
+                            <button class="buy-now"
+                                data-imagen="{% static producto.imagen %}"
+                                data-nombre="{{ producto.nombre }}"
+                                data-precio="{{ producto.precio }}"
+                                data-descripcion="{{ producto.descripcion }}"
+                            >COMPRAR</button>
+                        </div>
+                    </div>
+                    <p class="product-name">{{ producto.nombre }}</p>
+                    <p class="product-price">{{ producto.precio }}</p>
+                </div>
+            {% endfor %}
+        </div>
+    </section>
+    
+    <!-- Modal de compra -->
+    <div id="modalCompra" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-body">
+                <!-- Sección de imagen -->
+                <div class="modal-img">
+                    <img id="modal-img" src="" alt="Producto">
+                </div>
+                
+                <!-- Sección de información -->
+                <div class="modal-info">
+                    <h2 id="modal-title" class="modal-product-title"></h2>
+                    <p id="modal-price" class="modal-product-price"></p>
+                    <p><strong>Proveedor:</strong> <span id="modal-proveedor"></span></p>
+
+                    <!-- Botones de talla -->
+                    <div class="modal-talla">
+                        <p><strong>Talla:</strong></p>
+                        <div id="modal-tallas"></div>
+                    </div>
+
+                    <!-- Botones de cantidad -->
+                    <div class="modal-cantidad">
+                        <p><strong>Cantidad:</strong></p>
+                        <button id="restarCantidad" class="qty-btn">-</button>
+                        <input type="number" id="cantidadInput" value="1" min="1">
+                        <button id="sumarCantidad" class="qty-btn">+</button>
+                    </div>
+
+                    <!-- Botones de acción -->
+                    <button class="modal-add-cart">AGREGAR AL CARRITO</button>
+                    <button class="modal-buy-now">COMPRAR AHORA</button>
+
+                    <!-- Descripción -->
+                    <div class="modal-desc">
+                        <h3>Descripción</h3>
+                        <p id="modal-descripcion"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Script para manejar la apertura y cierre de la modal -->
+    <script src="{% static 'js/categoria.js' %}"></script>
+
+
+</body>
+</html>

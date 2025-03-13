@@ -1,0 +1,77 @@
+        /* Estilos Generales */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #fff;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        /* Estilos para la sección izquierda */
+        .account-info {
+            width: 40%;
+            text-align: left;
+        }
+
+        .account-info h2 {
+            font-size: 22px;
+            font-weight: bold;
+            color: black;
+            text-transform: uppercase;
+        }
+
+        .account-info p {
+            font-size: 16px;
+            color: #555;
+            margin: 5px 0;
+        }
+
+        .account-info a {
+            color: black;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .account-info a:hover {
+            color: gray;
+        }
+
+        /* Sección central - Título */
+        .account-title {
+            text-align: center;
+            width: 30%;
+        }
+
+        .account-title h2 {
+            font-size: 24px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .no-orders {
+            font-size: 14px;
+            color: #888;
+        }
+
+        /* Sección derecha - Cerrar sesión */
+        .logout-section {
+            text-align: right;
+            width: 30%;
+        }
+
+        .logout-section a {
+            color: black;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .logout-section a:hover {
+            color: gray;
+        }

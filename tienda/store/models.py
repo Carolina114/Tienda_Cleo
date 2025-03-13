@@ -24,4 +24,4 @@ class PerfilUsuario(models.Model):
     tipo_usuario = models.IntegerField(choices=TIPO_USUARIO, default=2)  # 1 = Admin, 2 = Cliente
 
     def __str__(self):
-        return f"{self.user.username} - {self.get_tipo_usuario_display()}"
+        return f"{self.user.first_name} {self.user.last_name} ({self.user.username})"
